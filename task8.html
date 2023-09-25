@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript program to Returns a passed string with letters in alphabetical order</title>
+</head>
+<body>
+    Enter a string: <input id="result">
+    <button onclick="sortStringAlphabetically()">Check</button><br><br>
+  <script>
+    function sortStringAlphabetically() {
+      // Get the input value
+      var str = document.getElementById("result").value;
+
+      // Convert the input string to an array of characters
+      const charArray = str.split('');
+
+      // Sort the array of characters alphabetically
+      const sortedArray = charArray.sort();
+
+      // Join the sorted characters back into a string
+      const sortedString = sortedArray.join('');
+
+      alert(sortedString); // Output: "ehllo"
+    }
+  </script>
+</body>
+</html>

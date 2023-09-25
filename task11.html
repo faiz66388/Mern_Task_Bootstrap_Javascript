@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        .error-input {
+            border: 2px solid red;
+            
+        }
+        p,label{
+            font-family: Arial, Helvetica, sans-serif;
+           font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <form id="contactForm" style="margin-top: 100px;">
+            <table>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" name="name"></td>
+                    <td>
+                        <p id="nameError" class="error" style="color: red;"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> <label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email"></td>
+                    <td>
+                        <p id="emailError" class="error" style="color: red;"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="website">Website:</label></td>
+                    <td><input type="url" id="website" name="website"></td>
+                    <td>
+                        <p id="websiteError" class="error" style="color: red;"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="message">Message:</label></td>
+                    <td><textarea id="message" name="message"></textarea></td>
+                    <td>
+                        <p id="messageError" class="error" style="color: red;"></p>
+                    </td>
+                </tr>
+            </table>
+
+            <button type="submit" style="margin-left: -70px;">Submit</button>
+        </form>
+    </center>
+    <script>
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", function (event) {
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const website = document.getElementById("website");
+            const message = document.getElementById("message");
+
+            let valid = true;
+
+            // Name validation
+            if (name.value.trim() === "") {
+                document.getElementById("nameError").textContent = "This field is required";
+                name.classList.add("error-input");
+                valid = false;
+            } else {
+                document.getElementById("nameError").textContent = "";
+                name.classList.remove("error-input");
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.match(emailRegex)) {
+                document.getElementById("emailError").textContent = "A valid email address is required";
+                email.classList.add("error-input");
+                valid = false;
+            } else {
+                document.getElementById("emailError").textContent = "";
+                email.classList.remove("error-input");
+            }
+
+            // Website validation
+            const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+            if (!website.value.match(urlRegex)) {
+                document.getElementById("websiteError").textContent = "A valid URL is required";
+                website.classList.add("error-input");
+                valid = false;
+            } else {
+                document.getElementById("websiteError").textContent = "";
+                website.classList.remove("error-input");
+            }
+
+            // Message validation
+            if (message.value.trim() === "") {
+                document.getElementById("messageError").textContent = "This field is required";
+                message.classList.add("error-input");
+                valid = false;
+            } else {
+                document.getElementById("messageError").textContent = "";
+                message.classList.remove("error-input");
+            }
+
+            if (!valid) {
+                event.preventDefault(); // Prevent form submission if there are errors
+            }
+        });
+    </script>
+</body>
+</html>

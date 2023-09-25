@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time Display</title>
+    <style>
+        p{
+           font-family: Verdana, Geneva, Tahoma, sans-serif;
+           font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <center>
+        <h1>Date and Time Display</h1>
+        <div>
+            <button onclick="showDate()">Show Date</button>
+            <p id="date"></p>
+            <br><br>
+
+            <button onclick="showTime()">Show Time</button>
+            <p id="time"></p>
+            <br><br>
+        </div>
+    </center>
+    <script>
+        function showDate() {
+            const currentDate = new Date();
+            const dateElement = document.getElementById("date");
+            dateElement.textContent = `Current Date: ${currentDate.toDateString()}`;
+        }
+
+        function showTime() {
+            const currentTime = new Date();
+            const timeElement = document.getElementById("time");
+            const options = { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+            timeElement.textContent = `Current Time: ${currentTime.toLocaleString('en-US', options)}`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation</title>
+    <!-- Include Bootstrap CSS and your custom CSS for styling -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .train-container {
+            position: relative;
+            width: 100%; /* Set the width to 100% to cover the entire screen width */
+            height: 200px; /* Adjust this height according to your train image size */
+            overflow: hidden;
+        }
+
+        .train {
+            width: auto; /* Set width to auto to maintain image aspect ratio */
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0; /* Initially show the train at the left of the container */
+            transition: left 5s linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        
+        <div class="train-container">
+            <img src="./train.png" alt="Train" class="train">
+        </div>
+        <br>
+        <h1>Click the following buttons to handle animation</h1>
+        <div class="mt-3">
+            <button id="startBtn" class="btn btn-success">Start</button>
+            <button id="stopBtn" class="btn btn-danger" disabled>Stop</button>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const trainElement = document.querySelector('.train');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        let isMoving = false;
+
+        startBtn.addEventListener('click', () => {
+            if (!isMoving) {
+                isMoving = true;
+                trainElement.style.left = '100%'; // Move the train to the right of the container
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                // Reset the train's position when it reaches the end
+                trainElement.addEventListener('transitionend', () => {
+                    trainElement.style.left = '0';
+                });
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            if (isMoving) {
+                isMoving = false;
+                const computedStyle = window.getComputedStyle(trainElement);
+                const currentLeft = computedStyle.getPropertyValue('left');
+                trainElement.style.left = currentLeft; // Pause the train at its current position
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>

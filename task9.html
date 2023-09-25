@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Multiplication and Division Calculator</title>
+  <style>
+    div{
+        width
+        border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+    <center>
+  <h2>Multiplication and Division Calculator</h2>
+  <p>Enter two numbers:</p>
+  <div>
+
+  <label for="num1">Number 1: </label>
+  <input type="number" id="num1"><br><br>
+
+  <label for="num2">Number 2: </label>
+  <input type="number" id="num2"><br><br>
+
+  <button onclick="multiply()">Multiply</button>
+  <button onclick="divide()">Divide</button><br><br>
+</div>
+  <p>Result:</p>
+  <p id="result"></p>
+</center>
+
+  <script>
+    function multiply() {
+      // Get the values of the two input fields
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        // Check if the input values are valid numbers
+        document.getElementById("result").textContent = "Please enter valid numbers.";
+      } else {
+        // Calculate multiplication
+        var multiplication = num1 * num2;
+
+        // Display the result
+        document.getElementById("result").textContent = "Multiplication: " + multiplication;
+      }
+    }
+
+    function divide() {
+      // Get the values of the two input fields
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        // Check if the input values are valid numbers
+        document.getElementById("result").textContent = "Please enter valid numbers.";
+      } else if (num2 === 0) {
+        // Check for division by zero
+        document.getElementById("result").textContent = "Division by zero is not allowed.";
+      } else {
+        // Calculate division
+        var division = num1 / num2;
+
+        // Display the result
+        document.getElementById("result").textContent = "Division: " + division;
+      }
+    }
+  </script>
+</body>
+</html>

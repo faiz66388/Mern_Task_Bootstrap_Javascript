@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #405de6;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #405de6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 0;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #3c50c0;
+        }
+
+        .signup {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">Instagram</div>
+            <form action="">
+            <input type="text" placeholder="Username or Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+            <p class="signup">Don't have an account? <a href="./signup.html">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #405de6;
+        }
+
+        input[type="text"],input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #405de6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 0;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #3c50c0;
+        }
+
+        .signup {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">Sign Up</div>
+            <form action="">
+                <table>
+                    <tr>
+                        <td><input type="text" placeholder="Full Name" required></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><input type="email" placeholder="Email" required></td>
+                       
+                    </tr>
+                    <tr>
+                        <td><input type="password" placeholder="Password" required></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit">Sign Up</button></td>
+                    </tr>
+                </table>     
+            </form>
+            <p class="signup">Already have an account? <a href="task12.html">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
